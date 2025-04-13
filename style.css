@@ -85,3 +85,94 @@ body {
     font-size: 1em;
     cursor: pointer;
 }
+/* style.css 파일 맨 아래에 추가 */
+
+.hidden {
+    display: none;
+}
+
+#name-input-section {
+    margin: 20px;
+    text-align: center;
+}
+
+#nickname-input {
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#join-button {
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* 기존 스타일들... */
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#board-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+#board {
+    width: 450px;
+    height: 450px;
+    background-color: #deb887;
+    border: 2px solid #333;
+    position: relative;
+    background-image:
+        repeating-linear-gradient(to right, transparent 0, transparent 29px, #666 29px, #666 30px),
+        repeating-linear-gradient(to bottom, transparent 0, transparent 29px, #666 29px, #666 30px);
+    background-size: 30px 30px;
+    background-position: 0 0;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+#game-info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#message {
+    font-weight: bold;
+    color: red;
+    min-height: 1.2em;
+}
+
+.stone {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.black {
+    background-color: black;
+    border: 1px solid #555;
+}
+
+.white {
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+#reset-button {
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#my-nickname, #opponent-nickname {
+    font-weight: bold;
+}
