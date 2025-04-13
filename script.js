@@ -21,7 +21,7 @@ let canPlay = false; // 내 턴일 때만 true
 
 // --- 서버 연결 ---
 // 서버 주소 입력 (만약 서버가 다른 곳에 있다면 해당 주소로 변경)
-const socket = io('http://localhost:3000');
+const socket = io('https://gomoku-game-rgag.onrender.com');
 
 // --- 함수 ---
 
