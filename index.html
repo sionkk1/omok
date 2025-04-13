@@ -8,18 +8,26 @@
 </head>
 <body>
     <h1>온라인 오목 게임</h1>
-    <div id="game-info">
-        <p>당신은 <span id="player-color">?</span> 입니다.</p>
-        <p>현재 차례: <span id="current-player">대기 중...</span></p>
-        <p id="message"></p>
+
+    <div id="name-input-section">
+        <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요" maxlength="10">
+        <button id="join-button">게임 참여</button>
     </div>
 
-    <div id="board-container">
-        <div id="board">
-            </div>
-    </div>
+    <div id="game-section" class="hidden">
+        <div id="game-info">
+            <p><span id="my-nickname">나</span> vs <span id="opponent-nickname">상대방</span></p>
+            <p>현재 차례: <span id="current-player">대기 중...</span></p>
+            <p id="message"></p>
+        </div>
 
-    <button id="reset-button" style="margin-top: 10px;" disabled>다시 시작 (미구현)</button>
+        <div id="board-container">
+            <div id="board">
+                </div>
+        </div>
+
+        <button id="reset-button" style="margin-top: 10px;" disabled>다시 시작 (미구현)</button>
+    </div>
 
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
     <script src="script.js"></script>
