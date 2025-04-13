@@ -1,0 +1,87 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column; /* 요소들을 세로로 배치 */
+    align-items: center; /* 가로축 가운데 정렬 */
+    margin-top: 20px;
+}
+
+#board-container {
+    margin-top: 20px;
+    position: relative; /* 내부 요소(돌)의 기준점 역할을 위해 */
+}
+
+#board {
+    /* 오목판 크기 설정 (15x15 격자, 각 칸 30px) */
+    /* 선은 15개 필요하므로 칸(공간)은 14개입니다. */
+    /* 전체 크기 = (칸 개수 * 칸 크기) = 14 * 30px = 420px */
+    /* 하지만 선 위에 돌을 놓으므로, 15개의 '점' 개념으로 접근하여 15*칸크기로 계산하면 편리합니다. */
+    /* 여기서는 15개의 선을 그리는 방식으로 접근합니다. */
+    width: 450px;  /* 15개 지점 * 30px 간격 */
+    height: 450px; /* 15개 지점 * 30px 간격 */
+    background-color: #deb887; /* 나무색 비슷한 배경 */
+    border: 2px solid #333; /* 바깥 테두리 */
+    position: relative; /* 돌 위치 지정의 기준 */
+
+    /* 격자 선 그리기 (background-image 사용) */
+    background-image:
+        /* 세로선 */
+        repeating-linear-gradient(to right, transparent 0, transparent 29px, #666 29px, #666 30px),
+        /* 가로선 */
+        repeating-linear-gradient(to bottom, transparent 0, transparent 29px, #666 29px, #666 30px);
+
+    /* 선 간격 (셀 크기) 설정 */
+    background-size: 30px 30px;
+
+    /* 선이 중앙에서 시작하도록 위치 조정 (약간의 오차가 있을 수 있음) */
+    /* background-position: 15px 15px; */
+    /* 선이 테두리부터 시작하도록 */
+     background-position: 0 0;
+
+     /* 그림자가 있으면 좀 더 입체적 */
+     box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+/* 게임 정보 및 메시지 스타일 */
+#game-info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#message {
+    font-weight: bold;
+    color: red;
+    min-height: 1.2em; /* 메시지가 없을 때도 공간 차지 */
+}
+
+/* 돌 스타일 (나중에 JavaScript로 추가될 요소) */
+.stone {
+    position: absolute; /* #board 기준으로 절대 위치 */
+    width: 26px;       /* 칸 크기(30px)보다 약간 작게 */
+    height: 26px;
+    border-radius: 50%; /* 원 모양 */
+    box-sizing: border-box; /* 테두리 포함 크기 계산 */
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* 입체감 */
+    /* JavaScript에서 left, top 위치를 계산해서 설정 */
+}
+
+.black {
+    background-color: black;
+    border: 1px solid #555;
+}
+
+.white {
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+/* (선택) 마우스 올렸을 때 표시 (나중에 JS로 개선) */
+/* #board:hover {
+    cursor: pointer;
+} */
+
+#reset-button {
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+}
