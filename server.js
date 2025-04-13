@@ -3,15 +3,26 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require("socket.io");
+const cors = require('cors'); // cors 라이브러리 불러오기
 
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "*",
+
+// CORS 미들웨어 설정 (Socket.IO 설정보다 먼저!)
+// 중요: origin을 실제 클라이언트 주소로 명시하는 것이 보안상 좋습니다.
+app.use(cors({
+    origin: "https://omok-lcgj.onrender.com", // 클라이언트 주소 명시! '*' 대신 사용 권장
     methods: ["GET", "POST"]
-  }
-});
+  }));
+
+const server = http.createServer(app);
+
+// Socket.IO 서버 설정에서도 origin을 명시해주는 것이 좋습니다.
+const io = new Server(server, {
+    cors: {
+      origin: "https://omok-lcgj.onrender.com", // 클라이언트 주소 명시!
+      methods: ["GET", "POST"]
+    }
+  });
 
 const BOARD_SIZE = 15;
 
